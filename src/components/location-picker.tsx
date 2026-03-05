@@ -63,7 +63,7 @@ export function LocationPicker({ onLocationSelect, initialLocation }: LocationPi
 
     geocoder.on('result', (e) => {
       const { center, place_name } = e.result
-      if (marker.current && map.current) marker.current.setLngLat(center).addTo(map.current)
+      if (marker.current && map.current) marker.current.setLngLat(center as [number, number]).addTo(map.current)
       setSelectedLocation(place_name)
       onLocationSelect({ name: place_name, coordinates: center as [number, number] })
     })
