@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 5%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 9%;
+    --radius: 0.625rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mapbox overrides for light theme */
+.mapboxgl-ctrl-geocoder {
+  @apply !bg-white !text-gray-900 !rounded-lg !shadow-md !border !border-gray-200;
+  max-width: 100% !important;
+  width: 100% !important;
+  font-family: inherit !important;
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  @apply !bg-white !text-gray-900;
+  font-family: inherit !important;
+}
+
+.mapboxgl-ctrl-geocoder--suggestion {
+  @apply hover:!bg-gray-50;
+}
+
+.mapboxgl-popup-content {
+  @apply !bg-white !text-gray-900 !rounded-xl !shadow-xl !p-4;
+}
+
+.mapboxgl-popup-tip {
+  @apply !border-t-white;
+}
+
+/* Hero section parallax & overlays */
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 100%);
+}
+
+.section-fade {
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px -8px rgba(0,0,0,0.12);
+}
+
+/* Image zoom on hover */
+.img-zoom {
+  transition: transform 0.4s ease;
+}
+.img-zoom:hover {
+  transform: scale(1.05);
+}
