@@ -139,7 +139,10 @@ export interface Database {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      accept_bid: {
+        Args: { bid_id: string }
+        Returns: undefined
+      }
     }
     Enums: {
       job_category: JobCategory
