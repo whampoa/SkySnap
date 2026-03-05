@@ -70,6 +70,7 @@ export default async function JobDetailPage(props: { params: Promise<{ id: strin
 
   if (error || !job) notFound()
 
+  const clientProfile = Array.isArray(job.profiles) ? job.profiles[0] : job.profiles
   const isOwner = user?.id === job.client_id
   const isPilot = profile?.role === 'pilot'
   const config = CATEGORY_CONFIG[job.category as JobCategory]
@@ -206,9 +207,9 @@ export default async function JobDetailPage(props: { params: Promise<{ id: strin
             <div className="bg-white rounded-2xl border border-gray-200 p-6">
               <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Posted by</h3>
               <div className="flex items-center gap-3">
-                <Avatar id={job.profiles?.id} name={job.profiles?.full_name} avatarUrl={job.profiles?.avatar_url} size="lg" />
+                <Avatar id={clientProfile?.id} name={clientProfile?.full_name} avatarUrl={clientProfile?.avatar_url} size="lg" />
                 <div>
-                  <p className="font-medium text-gray-900">{job.profiles?.full_name || 'Client'}</p>
+                  <p className="font-medium text-gray-900">{clientProfile?.full_name || 'Client'}</p>
                   <p className="text-sm text-gray-500">Client</p>
                 </div>
               </div>
